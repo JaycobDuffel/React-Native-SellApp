@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "BoyOrSell",
+    "slug": "BoyOrSell",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "description": "When you find yourself no longer using something, its time to GetitGone! Getitgone is a marketplace app to sell your belongings on!"
+  }
+}
