@@ -1,13 +1,10 @@
 import React from "react";
-import { StyleSheet, StatusBar, Platform, View } from "react-native";
-import Screen from "./app/components/Screen";
-import ListItem from "./app/components/ListItem";
-import Icon from "./app/components/Icon";
-import AccountScreen from "./app/screens/AccountScreen";
+import { StyleSheet, StatusBar, Platform} from "react-native";
+import ListingScreen from "./app/screens/ListingScreen";
 
 export default function App() {
   return (
-    <AccountScreen/>
+    <ListingScreen/>
   );
 }
 
