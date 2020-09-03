@@ -5,6 +5,6 @@ export default {
   white: "#fff",
   dollarGreen: "#31af50",
   subTitleGrey: "#6e6969",
-  light: "#eaeaea",
+  light: "#FAF8F9",
   danger: "#ff5252"
 };
