@@ -4,7 +4,8 @@ export default {
   black: "#000",
   white: "#fff",
   dollarGreen: "#31af50",
-  subTitleGrey: "#6e6969",
+  dark: "#0c0c0c",
+  medium: "#6e6969",
   light: "#FAF8F9",
   danger: "#ff5252"
 };

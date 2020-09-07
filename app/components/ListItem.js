@@ -53,6 +53,6 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   subTitle: {
-    color: colours.subTitleGrey,
+    color: colours.medium,
   },
 });
