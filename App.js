@@ -1,21 +1,19 @@
 import React, { useState } from "react";
-import { StyleSheet, StatusBar, Platform, TextInput, Text } from "react-native";
+import { StyleSheet, Switch } from "react-native";
 import Screen from "./app/components/Screen";
+import AppPicker from "./app/components/AppPicker";
 import AppTextInput from "./app/components/AppTextInput";
 
 export default function App() {
-  const [firstName, setFirstName] = useState("");
+
+  const [isNew, setIsNew] = useState(false)
+
   return (
     <Screen>
-      <AppTextInput placeholder="Username" icon="email" />
+      <AppPicker icon="apps" placeholder="Category"/>
+      <AppTextInput icon="email" placeholder="Email" />
     </Screen>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-  },
-});
+const styles = StyleSheet.create({});
