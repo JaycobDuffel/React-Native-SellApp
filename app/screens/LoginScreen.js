@@ -3,11 +3,11 @@ import { StyleSheet, Image } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
-import Screen from "../components/Screen";
-import AppTextInput from "../components/AppTextInput";
 import AppButton from "../components/AppButton";
-import AppText from "../components/AppText";
-import colours from "../config/colours";
+import AppFormField from "../components/AppFormField";
+import AppTextInput from "../components/AppTextInput";
+import ErrorMessage from "../components/ErrorMessage";
+import Screen from "../components/Screen";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -24,30 +24,26 @@ export default function LoginScreen() {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        {({ handleChange, handleSubmit, errors }) => (
+        {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
           <>
-            <AppTextInput
+            <AppFormField
               autoCapitalize="none"
               autoCorrect={false}
               keyboardType="email-address"
               icon="email"
-              onChangeText={handleChange("email")}
+              name="email"
               placeholder="Email"
               textContentType="emailAddress"
             />
-            <AppText style={styles.errorMessage}>{errors.email}</AppText>
-            <AppTextInput
+            <AppFormField
               autoCapitalize="none"
               autoCorrect={false}
               icon="lock"
-              onChangeText={handleChange("password")}
+              name="password"
               placeholder="password"
               textContentType="password"
               secureTextEntry
             />
-            <AppText style={styles.errorMessage}>
-              {errors.password}
-            </AppText>
             <AppButton title="Login" onPress={handleSubmit} />
           </>
         )}
@@ -59,9 +55,6 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-  },
-  errorMessage: {
-    color: colours.danger
   },
   logo: {
     width: 80,
