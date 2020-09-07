@@ -35,7 +35,7 @@ export default function LoginScreen() {
               placeholder="Email"
               textContentType="emailAddress"
             />
-            <AppText style={{ color: colours.danger }}>{errors.email}</AppText>
+            <AppText style={styles.errorMessage}>{errors.email}</AppText>
             <AppTextInput
               autoCapitalize="none"
               autoCorrect={false}
@@ -45,7 +45,7 @@ export default function LoginScreen() {
               textContentType="password"
               secureTextEntry
             />
-            <AppText style={{ color: colours.danger }}>
+            <AppText style={styles.errorMessage}>
               {errors.password}
             </AppText>
             <AppButton title="Login" onPress={handleSubmit} />
@@ -59,6 +59,9 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+  },
+  errorMessage: {
+    color: colours.danger
   },
   logo: {
     width: 80,
