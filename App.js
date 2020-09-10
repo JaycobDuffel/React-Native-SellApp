@@ -5,16 +5,13 @@ import Screen from "./app/components/Screen";
 
 export default function App() {
   const requestPermission = async () => {
-    const { granted } = await ImagePicker.requestCameraRollPermissionsAsync;
-
-    if (!granted) {
-      alert("You need to allow camera roll access to upload pictures.")
-    }
-
+    const { granted } = await ImagePicker.requestCameraRollPermissionsAsync();
+    if (!granted) alert("You need to allow camera roll access to upload pictures.");
+    
   };
 
-  useEffect(async () => {
-    requestPermission()
+  useEffect(() => {
+    requestPermission();
   }, []);
   return <Screen></Screen>;
 }
