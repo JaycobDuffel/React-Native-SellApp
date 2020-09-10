@@ -1,29 +1,26 @@
-import React, { useEffect, useState } from "react";
-import * as ImagePicker from "expo-image-picker";
-import { StyleSheet, Button, Image } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet } from "react-native";
 
 import Screen from "./app/components/Screen";
-import ImageInput from "./app/components/ImageInput";
+import ImageInputList from "./app/components/ImageInputList";
 
 export default function App() {
-  const [imageURI, setImageURI] = useState();
+  const [imageURIs, setImageURIs] = useState([]);
 
-  const requestPermission = async () => {
-    const { granted } = await ImagePicker.requestCameraRollPermissionsAsync();
-    if (!granted) {
-      alert("You need to allow camera roll access to upload pictures.");
-    }
-  };
+  const handleAdd = uri => {
+    setImageURIs([...imageURIs, uri])
+  }
 
-  useEffect(() => {
-    requestPermission();
-  }, []);
+  const handleRemove = uri => {
+    setImageURIs(imageURIs.filter(imageURI => imageURI !== uri))
+  }
 
   return (
     <Screen>
-      <ImageInput
-        imageURI={imageURI}
-        onChangeImage={(uri) => setImageURI(uri)}
+      <ImageInputList
+        imageURIs={imageURIs}
+        onAddImage={handleAdd}
+        onRemoveImage={handleRemove}
       />
     </Screen>
   );
