@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
+import * as Location from "expo-location";
 
 import {
   AppForm,
@@ -17,7 +18,7 @@ const validationSchema = Yup.object().shape({
   price: Yup.number().required().min(1).max(10000).label("Price"),
   description: Yup.string().label("Description"),
   category: Yup.object().required().nullable().label("Category"),
-  images: Yup.array().min(1, "Please upload at least one image.")
+  images: Yup.array().min(1, "Please upload at least one image."),
 });
 
 const categories = [
@@ -53,6 +54,19 @@ const categories = [
 ];
 
 function ListingEditScreen() {
+  const [location, setLocation] = useState();
+
+  const getLocation = async () => {
+    const { granted } = Location.requestPermissionsAsync();
+    if (!granted) return;
+    const { coords } = await Location.getLastKnownPositionAsync();
+    setLocation({ latitude : coords.latitude, longitude: coords.longitude });
+  };
+
+  useEffect(() => {
+    getLocation();
+  }, []);
+
   return (
     <Screen style={styles.container}>
       <AppForm
@@ -61,9 +75,9 @@ function ListingEditScreen() {
           price: "",
           description: "",
           category: null,
-          images: []
+          images: [],
         }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => console.log(location)}
         validationSchema={validationSchema}
       >
         <AppFormImagePicker name="images" />
