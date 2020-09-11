@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import {
   AppForm,
   AppFormField,
+  AppFormImagePicker,
   AppFormPicker,
   SubmitButton,
 } from "../components/forms";
@@ -16,18 +17,39 @@ const validationSchema = Yup.object().shape({
   price: Yup.number().required().min(1).max(10000).label("Price"),
   description: Yup.string().label("Description"),
   category: Yup.object().required().nullable().label("Category"),
+  images: Yup.array().min(1, "Please upload at least one image.")
 });
 
 const categories = [
-  { label: "Electronics", value: 1, backgroundColor: "#ff3f3f", icon: "camera" },
+  {
+    label: "Electronics",
+    value: 1,
+    backgroundColor: "#ff3f3f",
+    icon: "camera",
+  },
   { label: "Pets", value: 2, backgroundColor: "#56bc64", icon: "dog" },
   { label: "Automotive", value: 3, backgroundColor: "#FF6665", icon: "car" },
   { label: "Games", value: 4, backgroundColor: "#446dff", icon: "cards" },
-  { label: "Clothing", value: 5, backgroundColor: "#ff9900", icon: "shoe-formal" },
+  {
+    label: "Clothing",
+    value: 5,
+    backgroundColor: "#ff9900",
+    icon: "shoe-formal",
+  },
   { label: "Books", value: 6, backgroundColor: "#66d6ff", icon: "book" },
-  { label: "Movies & Music", value: 7, backgroundColor: "#f2bcff", icon: "headphones" },
+  {
+    label: "Movies & Music",
+    value: 7,
+    backgroundColor: "#f2bcff",
+    icon: "headphones",
+  },
   { label: "Sports", value: 8, backgroundColor: "#65B1F4", icon: "football" },
-  { label: "Other", value: 9, backgroundColor: "#9a79b7", icon: "window-maximize" },
+  {
+    label: "Other",
+    value: 9,
+    backgroundColor: "#9a79b7",
+    icon: "window-maximize",
+  },
 ];
 
 function ListingEditScreen() {
@@ -39,10 +61,12 @@ function ListingEditScreen() {
           price: "",
           description: "",
           category: null,
+          images: []
         }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
+        <AppFormImagePicker name="images" />
         <AppFormField maxLength={255} name="title" placeholder="Title" />
         <AppFormField
           keyboardType="numeric"
