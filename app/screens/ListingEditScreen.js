@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
-import * as Location from "expo-location";
 
 import {
   AppForm,
@@ -55,7 +54,6 @@ const categories = [
 ];
 
 export default function ListingEditScreen() {
-  
   const location = useLocation();
 
   return (
@@ -106,4 +104,3 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 });
-
