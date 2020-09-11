@@ -7,6 +7,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Screen from "./app/components/Screen";
 import AuthNavigator from "./app/Navigation/AuthNavigator"
 import navigationTheme from "./app/Navigation/navigationTheme";
+import AppNavigator from "./app/Navigation/AppNavigator";
 
 const Link = () => {
   <Button />;
@@ -67,7 +68,7 @@ const TabNavigator = () => {
 export default function App() {
   return (
     <NavigationContainer theme={navigationTheme} >
-      <AuthNavigator />
+      <AppNavigator />
     </NavigationContainer>
   );
 }
