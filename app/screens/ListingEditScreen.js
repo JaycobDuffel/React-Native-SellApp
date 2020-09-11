@@ -54,7 +54,7 @@ const categories = [
 ];
 
 function ListingEditScreen() {
-  const [location, setLocation] = useState({});
+  const [location, setLocation] = useState(null);
 
   const getLocation = async () => {
     const { granted } = Location.requestPermissionsAsync();
