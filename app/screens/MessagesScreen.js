@@ -9,14 +9,14 @@ import ListItemDeleteAction from "../components/ListItemDeleteAction";
 const initialMessages = [
   {
     id: 1,
-    title: "T1",
-    description: "D1",
+    title: "T1fovndfopgbdipvbd8",
+    description: "D1vdflvndflvndfmmvdfv",
     image: require("../assets/hiking_pic.jpeg"),
   },
   {
     id: 2,
-    title: "T2",
-    description: "D2",
+    title: "T2bcsicbsivbdfobvnodnvn",
+    description: "D2vdv dkvnd;kvndfvmdfpvmdf,vdv",
     image: require("../assets/hiking_pic.jpeg"),
   },
 ];
