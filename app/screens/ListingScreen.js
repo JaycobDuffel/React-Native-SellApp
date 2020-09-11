@@ -20,7 +20,7 @@ const listings = [
   },
 ]
 
-export default function ListingScreen() {
+export default function ListingScreen({navigation}) {
   return (
     <Screen style={styles.screen}>
       <FlatList data={listings} keyExtractor={listing => listing.id.toString()} renderItem={({ item }) => 
@@ -28,6 +28,7 @@ export default function ListingScreen() {
         title={item.title}
         subTitle={"$" + item.price}
         image={item.image}
+        onPress={() => navigation.navigate("ListingDetailsScreen", item) }
         /> 
       }/>
     </Screen>
