@@ -7,7 +7,6 @@ import colours from "../config/colours";
 
 export default function ListingDetailsScreen({ route }) {
   const listing = route.params;
-  console.log(listing.images[0].url)
 
   return (
     <View>
