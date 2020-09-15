@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
 
+import listingsApi from "../api/listings";
 import {
   AppForm,
   AppFormField,
@@ -9,8 +10,8 @@ import {
   AppFormPicker,
   SubmitButton,
 } from "../components/forms";
-import Screen from "../components/Screen";
 import CategoryPickerItem from "../components/CategoryPickerItem";
+import Screen from "../components/Screen";
 import useLocation from "../hooks/useLocation";
 
 const validationSchema = Yup.object().shape({
@@ -56,6 +57,12 @@ const categories = [
 export default function ListingEditScreen() {
   const location = useLocation();
 
+  const handleSubmit = async (listing) => {
+    const result = await listingsApi.addListing({ ...listing, location });
+    if (!result.ok) return alert("Could not save the listing.");
+    alert("Success");
+  };
+
   return (
     <Screen style={styles.container}>
       <AppForm
@@ -66,7 +73,7 @@ export default function ListingEditScreen() {
           category: null,
           images: [],
         }}
-        onSubmit={(values) => console.log(location)}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <AppFormImagePicker name="images" />
