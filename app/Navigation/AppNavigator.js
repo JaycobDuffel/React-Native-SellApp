@@ -8,12 +8,13 @@ import FeedNavigator from "./FeedNavigator";
 import ListingEditScreen from "../screens/ListingEditScreen";
 import NewListingButton from "./NewListingButton";
 import Routes from "../Navigation/routes";
+import colours from "../config/colours";
 
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator tabBarOptions={{activeTintColor: colours.primary}} >
       <Tab.Screen
         name="Feed"
         component={FeedNavigator}
@@ -24,6 +25,7 @@ const AppNavigator = () => {
         }}
       />
       <Tab.Screen
+
         name="ListingsEdit"
         component={ListingEditScreen}
         options={({ navigation }) => ({

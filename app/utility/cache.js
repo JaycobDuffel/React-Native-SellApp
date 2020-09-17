@@ -42,4 +42,5 @@ const get = async (key) => {
 
 export default {
   store,
+  get,
 };
