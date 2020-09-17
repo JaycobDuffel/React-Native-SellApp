@@ -1,13 +1,20 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-
-import navigationTheme from "./app/Navigation/navigationTheme";
-import AppNavigator from "./app/Navigation/AppNavigator";
+import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
+import AsyncStorage from "@react-native-community/async-storage";
 
 export default function App() {
-  return (
-    <NavigationContainer theme={navigationTheme}>
-      <AppNavigator />
-    </NavigationContainer>
-  );
+  const demo = async () => {
+    try {
+      await AsyncStorage.setItem("person", JSON.stringify({ id: 1 }));
+      const jsonValue = await AsyncStorage.getItem("person");
+      const person = JSON.parse(jsonValue);
+      console.log(person);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  demo();
+
+  return null;
 }
