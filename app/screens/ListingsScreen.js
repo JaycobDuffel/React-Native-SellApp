@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, FlatList, View } from "react-native";
 
-import ActivityIndicator from "../components/ActivityIndicator"
+import ActivityIndicator from "../components/ActivityIndicator";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
 import Card from "../components/Card";
@@ -12,9 +12,9 @@ import Screen from "../components/Screen";
 import useApi from "../hooks/useApi";
 
 export default function ListingScreen({ navigation }) {
-
-  const { data: listings , error, loading, request: loadListings } = useApi(listingsApi.getListings)
-
+  const { data: listings, error, loading, request: loadListings } = useApi(
+    listingsApi.getListings
+  );
 
   useEffect(() => {
     loadListings();
@@ -28,7 +28,7 @@ export default function ListingScreen({ navigation }) {
           <AppButton title="Retry" onPress={loadListings} />
         </View>
       )}
-    <ActivityIndicator visible={loading}/>
+      <ActivityIndicator visible={loading} />
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
@@ -50,12 +50,12 @@ const styles = StyleSheet.create({
   animation: {
     alignItems: "center",
     backgroundColor: "orange",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   errorMessage: {
     alignItems: "center",
     justifyContent: "center",
-    marginTop: "100%"
+    marginTop: "100%",
   },
   screen: {
     padding: Platform.OS === "android" ? 10 : 15,
