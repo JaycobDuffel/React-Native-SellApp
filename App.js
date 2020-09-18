@@ -3,6 +3,7 @@ import OfflineNotice from "./app/components/OfflineNotice";
 import { NavigationContainer } from "@react-navigation/native";
 
 import AppNavigator from "./app/Navigation/AppNavigator";
+import AuthNavigator from "./app/Navigation/AuthNavigator";
 import navigationTheme from "./app/Navigation/navigationTheme";
 
 export default function App() {
@@ -10,7 +11,7 @@ export default function App() {
     <>
       <OfflineNotice />
       <NavigationContainer theme={navigationTheme}>
-        <AppNavigator />
+        <AuthNavigator />
       </NavigationContainer>
     </>
   );
