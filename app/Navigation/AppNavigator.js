@@ -13,7 +13,7 @@ const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
   return (
-    <Tab.Navigator tabBarOptions={{activeTintColor: colours.primary}} >
+    <Tab.Navigator tabBarOptions={{ activeTintColor: colours.primary }}>
       <Tab.Screen
         name="Feed"
         component={FeedNavigator}
@@ -24,7 +24,6 @@ const AppNavigator = () => {
         }}
       />
       <Tab.Screen
-
         name="ListingsEdit"
         component={ListingEditScreen}
         options={({ navigation }) => ({
